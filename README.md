@@ -1,3 +1,3 @@
-# freecodecamp-intermediate-algorithm-scripting-solutions
+# FreeCodeCamp Intermediate Algorithm Scripting Solutions
 
-This repository is all the original solutions I crafted for the FreeCodeCamp section titled "Intermediate Algorithm Scripting".
+This repository is all the original solutions I crafted for the FreeCodeCamp section titled "Intermediate Algorithm Scripting". I really enjoyed doing these problems and will continue to seek more problems like these on websites like CodeWars.

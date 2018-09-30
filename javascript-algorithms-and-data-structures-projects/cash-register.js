@@ -50,6 +50,7 @@ function checkCashRegister(price, cash, cid) {
       neededChange -= 0.25;
       cidObj[0.25] -= 0.25;
       changeObj[0.25] += 0.25;
+    //Very strangely, JavaScript doesn't seem to be able to use "0.10" to lookup an object's value unless it's in quotations
     } else if (neededChange/0.10 >= 1 && cidObj['0.10'] > 0) {
       neededChange = Math.round(neededChange*100)/100 - 0.10;
       cidObj['0.10'] -= 0.10;
@@ -100,6 +101,7 @@ function checkCashRegister(price, cash, cid) {
     if (changeObj[0.25] > 0) {
       changeArr.push(["QUARTER", changeObj[0.25]]);
     }
+    //Very strangely, JavaScript doesn't seem to be able to use "0.10" to lookup an object's value unless it's in quotations
     if (changeObj['0.10'] > 0) {
       changeArr.push(["DIME", changeObj['0.10']]);
     }

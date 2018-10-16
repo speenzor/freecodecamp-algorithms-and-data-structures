@@ -1,0 +1,164 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<h1 id="title">Digidex App Survey</h1>
+
+<div id="form-outer">
+  <p id="description">Please complete this survey to help us understand how you could benefit from a personal contact relationship management application.</p>
+
+  <form id="survey-form" method="GET" action="">
+    <div>
+      <div class="labels">
+    <label for="name" id="name-label">*Name: </label>
+      </div>
+      <div class="rightTab">
+    <input type="text" placeholder="Please enter your name" required autofocus name="name" id="name" class="input-field">
+      </div>
+      <div>
+        <div class="labels">
+          <label for="email" id="email-label">*Email: </label>
+        </div>
+        <div class="rightTab">
+          <input type="email" placeholder="Please enter your email" required name="email" id="email" class="input-field" required>
+        </div>
+      </div>
+      <div>
+        <div class="labels">
+          <label for="age" id="number-label">*Age: </label>
+        </div>
+        <div class="rightTab">
+          <input required name="age" id="number" class="input-field" placeholder="Please enter your age" type="number" min="1" max="120">
+        </div>
+      </div>
+      <div>
+        <div class="labels">
+          <label for="industry">What industry do you currently work in?</label>
+        </div>
+        <div class="rightTab">
+          <select id="dropdown" name="industry" class="dropdown">
+            <option disabled selected value>Select an option</option>
+            <option value="finance">Finance</option>
+            <option value="software">Software</option>
+            <option value="IThardware">IT (hardware)</option>
+            <option value="RE">Real Estate</option>
+            <option value="consulting">Consulting</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="industrial">Industrial & Manufacturing</option>
+            <option value="law">Law</option>
+            <option value="accounting">Accounting</option>
+            <option value="construction">Architecture, Engineering, Construction</option>
+            <option value="politics">Politics</option>
+            <option value="public">Public Relations</option>
+            <option value="student">Student</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div class="labels">
+          <label for="role">Which option best describes your current role within your company?</label>
+        </div>
+        <div class="rightTab">
+          <select id="dropdown" name="role" class="dropdown">
+            <option disabled selected value>Select an option</option>
+            <option value="b2c">B2C Sales</option>
+            <option value="b2b">B2B Sales</option>
+            <option value="operations">Operations</option>
+            <option value="finance">Finance & Accounting</option>
+            <option value="management">Senior Management</option>
+            <option value="student">Student</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+       <div>
+        <div class="labels">
+          <label for="useCRM">Do you currently use a CRM tool like Salesforce in your day-to-day work?</label>
+        </div>
+        <div class="rightTab">
+          <ul>
+            <li class="radio"><label>Yes</label><input type="radio" value="1" name="radio-buttons"></li>
+            <li class="radio"><label>No</label><input type="radio" value="2" name="radio-buttons"></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="labels">
+          <label for="whichCRM">Which CRM product does your company currently use for customer relationship management?</label>
+        </div>
+        <div class="rightTab">
+          <select id="dropdown" name="whichCRM" class="dropdown">
+            <option disabled selected value>Select an option</option>
+            <option value="salesforce">Salesforce</option>
+            <option value="salesforceiq">SalesforceIQ</option>
+            <option value="hubspot">HubSpot</option>
+            <option value="pipedrive">Pipedrive</option>
+            <option value="netsuite">Oracle's NetSuite CRM</option>
+            <option value="msdynamics">Microsoft Dynamics CRM</option>
+            <option value="sugarcrm">SugarCRM</option>
+            <option value="insightly">Insightly</option>
+            <option value="nimble">Nimble</option>
+            <option value="freshsales">Freshsales</option>
+            <option value="velocify">Velocify</option>
+            <option value="lessannoying">Less Annoying CRM</option>
+            <option value="inhouse">In-house tool</option>
+            <option value="excel">MS Excel spreadsheet or Google Doc or similar</option>
+            <option value="other">Other</option>
+            <option value="none">We do not use any CRM tool</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div class="labels">
+          <label for="usePersonalCRM">Do you currently use a CRM tool like Salesforce in your personal life? For example, to keep up with acquaintances or business contacts.</label>
+        </div>
+        <div class="rightTab">
+          <ul>
+            <li class="radio"><label><input type="radio" value="1" name="radio-buttons">Yes</label></li>
+            <li class="radio"><label><input type="radio" value="2" name="radio-buttons">No</label></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="labels">
+          <label for="howToTrack">How do you currently remember to regularly contact friends or acquaintances that you don't see on a regular basis?</label>
+        </div>
+        <div class="rightTab">
+          <ul>
+            <li class="radio"><label><input type="radio" value="1" name="radio-buttons">I see their updates on social media and that triggers me to reach out and catch up</label></li>
+            <li class="radio"><label><input type="radio" value="2" name="radio-buttons">I remember them fondly while doing menial tasks and that triggers me to reach out and catch up</label></li>
+            <li class="radio"><label><input type="radio" value="2" name="radio-buttons">I keep a spreadsheet of all my friends and acquaintances that I want to stay in-touch with, which I check and update regularly</label></li>
+            <li class="radio"><label><input type="radio" value="2" name="radio-buttons">I don't. If I don't see them regularly then I don't keep up with them and eventually they're gone forever</label></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="labels">
+          <label for="socialmedia">What social media and communication tools do you currently use to keep up with friends and acquaintances, especially ones that you don't see on a regular basis?</label>
+        </div>
+        <div class="rightTab">
+          <ul id="socialmedia">
+            <li class="checkbox"><label><input name="media" value="1" type="checkbox" class="socialmedia">Facebook</label></li>
+            <li class="checkbox"><label><input name="media" value="2" type="checkbox" class="socialmedia">Facebook Messenger</label></li>
+            <li class="checkbox"><label><input name="media" value="3" type="checkbox" class="socialmedia">Snapchat</label></li>
+            <li class="checkbox"><label><input name="media" value="4" type="checkbox" class="socialmedia">Instagram</label></li>
+            <li class="checkbox"><label><input name="media" value="5" type="checkbox" class="socialmedia">Whatsapp</label></li>
+            <li class="checkbox"><label><input name="media" value="6" type="checkbox" class="socialmedia">Twitter</label></li>
+            <li class="checkbox"><label><input name="media" value="7" type="checkbox" class="socialmedia">LinkedIn</label></li>
+            <li class="checkbox"><label><input name="media" value="8" type="checkbox" class="socialmedia">Good ol' phone call</label></li>
+            <li class="checkbox"><label><input name="media" value="9" type="checkbox" class="socialmedia">Good ol' email</label></li>
+            <li class="checkbox"><label><input name="media" value="10" type="checkbox" class="socialmedia">Good ol' postal service</label></li>
+            <li class="checkbox"><label><input name="media" value="11" type="checkbox" class="socialmedia">Other messaging app</label></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="labels">
+          <label for="comments">Are there any additional comments or suggestions you have for your ideal personal Rolodex app?</label>
+        </div>
+        <div class="rightTab">
+          <textarea id="comments" class="input-field" name="comment" placeholder="Enter comments and suggestions here..."></textarea>
+        </div>
+        <button id="submit" type="submit">Submit</button>
+      </div>
+  </form>
+    </div>
+</div>

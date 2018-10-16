@@ -1,0 +1,118 @@
+html, body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+#navbar {
+  height: auto;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #D7DBDD;
+  overflow-x: hidden;
+  text-align: right;
+}
+
+.flex-container {
+  padding: 6px;
+  margin-right: 15px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+#navbar a {
+  padding: 10px;
+  color: blue;
+}
+
+#navbar a:hover {
+  color: black;
+  background-color: white;
+}
+
+main {
+  margin-top: 50px;
+}
+
+#welcome-section {
+  min-height: 93vh;
+}
+
+section {
+  margin: auto;
+  width: 65%;
+  border: 3px solid black;
+  padding: 10px;
+  text-align: left;
+}
+
+#projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+#projects h1 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.project-tile {
+  background-color: #283747;
+  border-radius: 5px;
+  margin: 4px;
+  color: white;
+}
+
+.project-tile:hover {
+  background-color: #D7DBDD;
+  color: black;
+}
+
+footer {
+  background-color: #D7DBDD;
+  height: auto;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  text-align: center;
+  padding-bottom: 20px;
+  margin-left: -10px;
+}
+
+footer a {
+  padding: 16px;
+  color: blue;
+}
+
+footer a:hover {
+  background-color: white;
+  color: black;
+}
+
+@media only screen
+  and (max-width: 600px) {
+    #nav-bar, .flex-container {
+      display: none;
+    }
+    #projects {
+      grid-auto-columns: 1fr;
+    }
+    #projects h1 {
+      grid-column-start: 1;
+      grid-column-end: 1;
+    }
+    .project-tile {
+      grid-column-start: 1;
+      grid-column-end: 1;
+    }
+}

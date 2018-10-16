@@ -1,0 +1,61 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<nav id="navbar">
+  <header>ReactJS Component Lifecycle</header>
+  <a class="nav-link" href="#Mounting">Mounting</a>
+  <a class="nav-link" href="#Updating">Updating</a>
+  <a class="nav-link" href="#Unmounting">Unmounting</a>
+  <a class="nav-link" href="#ReactDOM">ReactDOM</a>
+  <a class="nav-link" href="#ReactDOMServer">ReactDOMServer</a>
+</nav>
+
+<main id="main-doc">
+  <section class="main-section" id="Mounting">
+    <header>Mounting</header>
+    <p>A lot has been said about what React is and how effective it is for creating complex, yet easy to maintain user interfaces, as well as React's scalable component structure. Here I want to discuss a React component's lifecycle and go a bit deeper on lifecycle events and methods.</p>
+    <p>Components have a lifestyle that runs particular methods at particular times in the process of "mounting" and rendering a component. The following methods are called in order when an instance of a component is being created and interted into the DOM:</p>
+    <ul>
+      <li><code>constructor()</code>: Not all components need a contructor method. You need a constructor for a component if you initialize state and bind methods. The constructor is called before the component is mounted. Constructors are only used to initialize local state by assigning an object to <code>this.state</code> and for binding event handler methods to an instance. The construcor resides in the "Render phase" which is has no side effects on the DOM. In a sense it's preparing to render and may be paused, aborted, or restarted by React at this point.</li>
+      <li><code>getDerivedStateFromProps()</code>: Invokd right before calling the render method. It should return an object to update the state, or null to update nothing. This method exists for rare use cases where the state depends on changes in props over time. This method resides in the "Render phase" which is has no side effects on the DOM. In a sense it's preparing to render and may be paused, aborted, or restarted by React at this point.</li>
+      <li><code>render()</code>: The only method required in a class component. When called it will examine <code>this.props</code> and <code>this.state</code> and return React JSX elements, arrays and fragments, portals, strings and numbers, and booleans or null. <code>render()</code> should not interact with the browser or modify component state. Other lifecycle methods will be used to interact with the browser. Note that <code>render()</code> will not be invoked if <code>shouldComponentUpdate()</code> (described below) returns false. This method resides in the "Render phase" which is has no side effects on the DOM. In a sense it's preparing to render and may be paused, aborted, or restarted by React at this point.</li>
+      <li><code>componentDidMount()</code>: This method is invoked immediately after a component is mounted in the DOM. If you need to load data from a remote endpoint, like an API or backend, this is the best place to instantiate the network request. This method resides in the "Commit phase" where it can and will work with the DOM itself.</li>
+    </ul>
+  </section>
+  <section class="main-section" id="Updating">
+    <header>Updating</header>
+    <p>Components be caused to update by changes to props or state. These methods are called in the following order when a component is updating/being re-rendered.</p>
+    <ul>
+      <li><code>getDerivedStateFromProps()</code>: See explanation above.</li>
+      <li><code>shouldComponentUpdate()</code>: Use this method to let React know if a component's output is not affected by the current change in state or props. The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on this default behavior. Thus <code>shouldComponentUpdate()</code> defaults to <code>true</code>. You can use this method to compaire <code>this.props</code> with <code>nextProps</code> and <code>this.state</code> with <code>nextState</code>. If the comparison returns <code>false</code> then this tells React that the component update can be skipped. Note that returning <code>false</code> does not prevent child components from re-rendering if their state changes, as you should expect. This method resides in the "Render phase" which is has no side effects on the DOM. In a sense it's preparing to render and may be paused, aborted, or restarted by React at this point.</li>
+      <li><code>render()</code>: See explanation above.</li>
+      <li><code>getSnapshotBeforeUpdate()</code>: Invoked right before the most recent output is committed to the DOM. It enables your component to capture some information from the DOM (scroll position for example) before it is potentially changed. Any value returned by this lifecycle will be passed as a parameter to <code>componentDidUpdate()</code>. This method resides in the "Pre-commit phase" and will thus read the DOM before going onto <code>componentDidUpdate()</code>.</li>
+      <li><code>componentDidUpdate()</code>: Invoked immediately after updating occurs. This method is not called after the first render of a component. Use this method as an opportunity to operate on the DOM when the component was been updated. This is the appropriate place to do network requests, like API and backend requests, as long as you compare the current props to previous props (e.g. a network request may not be necessary if the props have not changed). You can call <code>setState()</code> in this method, but it must be wrapped in a condition or you'll cause an infinite loop (<code>setState()</code> is called, causing an update, calling <code>componentDidUpdate()</code> which once agains update the component, ad infinitum). This method resides in the "Commit phase" where it can and will work with the DOM itself.</li>
+    </ul>
+  </section>
+  <section class="main-section" id="Unmounting">
+    <header>Unmounting</header>
+    <p></p>
+    <ul>
+      <li><code>componentWillUnmount()</code>: This method is called when a component is being removed from the DOM. It's invoked immediately before a component is unmounted and destroyed. Use this method to perform any cleanup, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in <code>componentDidMount()</code>. You should not call <code>setState()</code> in this method because the component will never be re-rendered. Once a component instance is unmounted, it will never be mounted again. This method resides in the "Commit phase" where it can and will work with the DOM itself.</li>
+    </ul>
+  </section>
+  <section class="main-section" id="ReactDOM">
+    <header>ReactDOM</header>
+    <p>Using ES6 with npm you can <code>import ReactDOM from 'react-dom'</code>. This package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Usually you will simply use <code>ReactDOM.render()</code> to render your component (and its child components) to the DOM. There are several methods I will discuss briefly here.</p>
+    <p>Use <code>render()</code> method to render a React element into the DOM. If the React element was previously rendered this will perform an update on it and only mutate the DOM as necessary to reflect the latest React element.<p>
+    <p>Use the <code>hydrate()</code> method the same as <code>render()</code> except to "hydrate" a container whose HTML contents were rendered by <code>ReactDOMServer</code>.</p>
+    <p>Use <code>unmountComponentAtNode()</code> to remove a mounted React component from the DOM and clean up its event handlers and state. This returns true if a component was unmounted and false if there was no component to unmount.</p>
+    <p>Use <code>findDOMNode(component)</code> to return the corresponding native browser DOM element if this component has been mounted into the DOM. This method is useful for reading values out of the DOM, such as for field values and performing DOM measurements. When a component renders to <code>null</code> or <code>false</code>, <code>findDOMNode</code> returns <code>null</code>.</p>
+    <p>Finally, <code>createPortal()</code> creates a portal to provide a way to render children into a DOM node that exists outside the hierarchy of the DOM component.</p>
+  </section>
+  <section class="main-section" id="ReactDOMServer">
+    <header>ReactDOMServer</header>
+    <p>The <code>ReactDOMServer</code> enables you to render components to static markup. Like you use a NodeJS or Django/Flask backend to create dynamic web pages.</p>
+    <p>Use <code>import ReactDOMServer from 'react-dom/server'</code> on a Node server.</p>
+    <p>Use <code>ReactDOMServer.renderToString(element)</code> to render a React element to its initial HTML. React will return an HTML string. You can use this method to generate HTML on the server and send the markup down on the intitial request for faster page loads and to allow search engines to crawl your pages for SEO purposes.</p>
+    <p>Use <code>ReactDOMServer.renderToStaticMarkup(element)</code> to the same as you would use <code>renderToString</code> except this doesn't create extra DOM attributes that React uses internally. This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save some bytes.</p>
+    <p>Use <code>ReactDOMServer.renderToNodeStream(element)</code> to render a React element to its initial HTML. It returns a Readable stream that ouputs an HTML string. You ca use this method to generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl your pages for SEO purposes.</p>
+    <p>Use <code>ReactDOMServer.renderToStaticNodeStream(element)</code> similar to <code>renderToNodeStream</code>, except this doesn't create extra DOM attributes that React uses interally. This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save some bytes.</p>
+  </section>
+  <p>This information was derived from the <a href="https://reactjs.org/docs/react-component.html#forceupdate">React.Component</a> documentation and from this well designed <a href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">graphic</a> by <a href="https://github.com/wojtekmaj">Wojciech Maj</a>.</p>
+</main>

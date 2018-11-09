@@ -11,9 +11,10 @@ body {
 #title {
   font-family: "Garamond", Garamond, serif;
   font-weight: bold;
-  background-color: #D7DBDD;
+  background-color: rgb(237, 41, 57);
   border-radius: 8px;
   text-align: center;
+  color: rgb(0, 35, 149);
 }
 
 h2 {

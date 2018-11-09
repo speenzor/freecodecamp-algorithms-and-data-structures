@@ -52,27 +52,21 @@ section {
   text-align: left;
 }
 
-#projects {
+#grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
-#projects h1 {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 1;
-}
-
-.project-tile {
+.project-title {
   background-color: #283747;
   border-radius: 5px;
   margin: 4px;
   color: white;
 }
 
-.project-tile:hover {
+
+.project-title:hover {
   background-color: #D7DBDD;
   color: black;
 }
@@ -104,12 +98,8 @@ footer a:hover {
     #nav-bar, .flex-container {
       display: none;
     }
-    #projects {
-      grid-auto-columns: 1fr;
-    }
-    #projects h1 {
-      grid-column-start: 1;
-      grid-column-end: 1;
+    #grid-container {
+      grid-template-columns: 1fr;
     }
     .project-tile {
       grid-column-start: 1;

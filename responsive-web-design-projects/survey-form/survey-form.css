@@ -5,14 +5,8 @@ html, body {
   font-family: 'Helvetica', Helvetica, sans-serif;
 }
 
-header {
-  font-size: 2em;
-  font-weight: bold;
-  margin: 20px;
-}
-
 #form-outer {
-  background-color: #D7DBDD;
+  background-color: #26C6DA;
   margin: 0 auto;
   border-radius: 4px;
   width: 75%;
@@ -116,4 +110,8 @@ ul {
 textarea {
   height: 50px;
   resize: vertical;
+}
+
+#title {
+  text-decoration: underline;
 }

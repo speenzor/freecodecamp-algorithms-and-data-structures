@@ -9,17 +9,18 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #D7DBDD;
+  background-color: #282c34;
   overflow-x: hidden;
   padding-top: 16px;
-  border-right: solid;
+  border-right: solid #808B96;
 }
 
 #navbar header {
   font-size: 20px;
   padding-bottom: 16px;
   padding-left: 6px;
-  border-bottom: solid;
+  border-bottom: solid #808B96;
+  color: #61dafb;
 }
 
 .main-section {
@@ -35,6 +36,7 @@ body {
 .nav-link:hover {
   background-color: white;
   color: black;
+  border-bottom: solid #808B96;
 }
 
 .nav-link {
@@ -44,7 +46,7 @@ body {
   padding-right: 6px;
   text-decoration: none;
   display: block;
-  color: #4D5656;
+  color: #61dafb;
   border-bottom: solid;
 }
 

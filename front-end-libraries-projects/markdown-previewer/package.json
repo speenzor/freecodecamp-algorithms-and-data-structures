@@ -1,7 +1,8 @@
 {
-  "name": "markdown-previwer",
+  "name": "markdown-previewer",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://spencercorwin.com/markdown-previewer",
   "dependencies": {
     "marked": "^0.5.1",
     "react": "^16.6.1",

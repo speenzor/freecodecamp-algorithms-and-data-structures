@@ -1,14 +1,92 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*Note that I had to switch the display and output CSS selectors to fit the tests
+Originally I set display to mean the entire top portion of the calculator. Within display there was formula id on top and output id on bottom. Output id is what the tests would have
+ideally looked at, but they don't, so I switched display and output at the end. Now 
+display id is the bottom portion with white text, while output id is the entire display
+window. These two tags were switched in the JSX code*/
+
+html, body {
+  background-color: #EAECEE;
+  width: 100%;
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+#calculator-container {
+  height: 500px;
+  width: 350px;
+  background-color: black;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#output {
+  height: 100px;
+}
+
+#display {
+  background-color: ;
+  height: 50px;
+  text-align: right;
+  color: white;
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+#formula {
+  background-color: ;
+  height: 50px;
+  text-align: right;
+  font-size: 18px;
+  color: #E67E22;
+  margin-right: 10px;
+  margin-left: 5px;
+  padding-top: 10px;
+  word-wrap: break-word;
+}
+
+#buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  height: 400px;
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+}
+
+button {
+  background-color: grey;
+  color: ;
+  border: none;
+  font-size: 22px;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  color: white;
+  border: 2px solid white;
+}
+
+#equals {
+  grid-row-end: span 2;
+  background-color: #2980B9;
+}
+
+#clear {
+  grid-row-end: span 2;
+  background-color: #CD6155;
+}
+
+#zero {
+  grid-column-end: span 2;
+}
+
+#add, #subtract, #multiply, #divide {
+  background-color: #34495E;
+}
+
+@media only screen and (max-width: 400px) {
+  #calculator-container {
+    width: 100%;
+  }
 }

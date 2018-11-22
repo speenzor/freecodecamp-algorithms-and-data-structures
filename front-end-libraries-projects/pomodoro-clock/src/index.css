@@ -1,3 +1,78 @@
 html, body {
   background-color: tomato;
 }
+
+h1 {
+  text-decoration: underline;
+}
+
+#app-container {
+  border: 1px solid black;
+  margin: auto;
+  width: 60%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 4px 4px 3px black;
+  margin-top: 50px;
+}
+
+#session-container {
+  border: 1px solid black;
+  text-align: center;
+  width: 40%;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#break-container {
+  border: 1px solid black;
+  text-align: center;
+  width: 40%;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#timer-container {
+  border: 1px solid black;
+  text-align: center;
+  width: 40%;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button {
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: auto;
+  display: block;
+  width: 110px;
+}
+
+p {
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 600px) {
+  #flex-container {
+    flex-direction: column;
+  }
+  #timer-container, #break-container, #session-container {
+    width: 80%;
+  }
+}

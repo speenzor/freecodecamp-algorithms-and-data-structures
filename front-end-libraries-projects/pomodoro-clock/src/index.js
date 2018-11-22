@@ -130,6 +130,7 @@ class App extends React.Component {
       if (this.state.timeLeft > 0) {
         this.decrementTimer()
       } else {
+        this.audioBeep.play();
         this.setState({
           timeLeft: this.state.timerType === 'Session' ? this.state.breakLength * 60 : this.state.sessionLength * 60,
           timerType: this.state.timerType === 'Session' ? 'Break' : 'Session'
@@ -152,9 +153,12 @@ class App extends React.Component {
       breakLength: 5,
       sessionLength: 25,
       timeLeft: 1500,
+      timerType: 'Session',
       start: false
     })
     clearInterval(this.state.timerID);
+    this.audioBeep.pause();
+    this.audioBeep.currentTime = 0;
     e.preventDefault();
   }
   
@@ -168,22 +172,28 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
+      <div id="app-container">
         <h1>Pomodoro Clock</h1>
-        <Break
-          breakLength={this.state.breakLength}
-          breakDecrement={this.handleBreakDecrement}
-          breakIncrement={this.handleBreakIncrement}
-        />
-        <Session
-          sessionLength={this.state.sessionLength}
-          sessionDecrement={this.handleSessionDecrement}
-          sessionIncrement={this.handleSessionIncrement}
-        />
-        <h2 id="timer-label">{this.state.timerType}</h2>
-        <p id="time-left" style={this.state.timeLeft <= 60 ? {color:'red'}:{color:'black'}}>{this.clockify()}</p>
-        <button id="start_stop" onClick={this.toggleCountdown}>Start/Stop</button>
-        <button id="reset" onClick={this.handleReset}>Reset</button>
+        <div id="flex-container">
+          <Break
+            breakLength={this.state.breakLength}
+            breakDecrement={this.handleBreakDecrement}
+            breakIncrement={this.handleBreakIncrement}
+          />
+          <Session
+            sessionLength={this.state.sessionLength}
+            sessionDecrement={this.handleSessionDecrement}
+            sessionIncrement={this.handleSessionIncrement}
+          />
+        </div>
+        <div id="timer-container">
+          <h2 id="timer-label">{this.state.timerType}</h2>
+          <p id="time-left" style={this.state.timeLeft <= 60 ? {color:'red'}:{color:'black'}}>{this.clockify()}</p>
+          <button id="start_stop" onClick={this.toggleCountdown}>Start/Stop</button>
+          <button id="reset" onClick={this.handleReset}>Reset</button>
+          <audio id="beep" preload="auto" src="https://spencercorwin.com/assets/gong.mp3"
+            ref={(audio) => { this.audioBeep = audio; }} />
+        </div>
       </div>
     )
   }
@@ -192,7 +202,7 @@ class App extends React.Component {
 class Break extends React.Component {
   render() {
     return(
-      <div>
+      <div id="break-container">
         <h2 id="break-label">Break Length</h2>
         <p id="break-length">{this.props.breakLength}</p>
         <button id="break-decrement" onClick={this.props.breakDecrement}>-</button>
@@ -205,7 +215,7 @@ class Break extends React.Component {
 class Session extends React.Component {
   render() {
     return(
-      <div>
+      <div id="session-container">
         <h2 id="session-label">Session Length</h2>
         <p id="session-length">{this.props.sessionLength}</p>
         <button id="session-decrement" onClick={this.props.sessionDecrement}>-</button>
@@ -216,5 +226,3 @@ class Session extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById("app"))
-
-

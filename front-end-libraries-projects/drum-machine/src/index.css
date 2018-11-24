@@ -3,7 +3,6 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: ;
 }
 
 #drum-machine {
@@ -22,6 +21,7 @@ html {
   background-color: #F1C40F;
   height: 70px;
   margin: 5px;
+  padding-bottom: 5px;
   border-radius: 2px;
   text-align: center;
   font-size: 16px;
@@ -46,6 +46,10 @@ html {
   font-size: 5vh;
 }
 
+.drum-pad:hover {
+  background-color: white;
+}
+
 #pad-container {
   padding: 5px;
   display: grid;
@@ -58,14 +62,12 @@ html {
 }
 
 #audio-name-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: none;
-  width: 100%;
-  margin: ;
-  background-color: pink;
-  justify-content: center;
-  
+  width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding: 3px;
+  border: 1px solid black;
 }
 
 @media only screen and (max-width: 600px) {

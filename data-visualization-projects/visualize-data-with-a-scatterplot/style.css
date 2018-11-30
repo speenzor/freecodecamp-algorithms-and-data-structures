@@ -1,0 +1,35 @@
+html, body {
+    background-color: #D0D3D4;
+  }
+  
+  #container {
+    background-color: white;
+    width: 67%;
+    margin: auto;
+    text-align: center;
+    box-shadow: 1px 1px 4px 2px black;
+  }
+  
+  .dot {
+  
+  }
+  
+  #tooltip {
+    position: absolute;
+    text-align: left;
+    width: 300px;
+    height: auto;
+    padding: 6px;
+    font: 12px;
+    background: lightsteelblue;
+    box-shadow: 1px 1px 10px;
+    border-radius: 8px;
+    pointer-events: none;
+    font-size: 12px;
+    display: none;
+  }
+  
+  #legend {
+    fill: white;
+    stroke: black;
+  }

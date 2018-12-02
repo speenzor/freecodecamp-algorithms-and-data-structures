@@ -1,0 +1,36 @@
+html, body {
+    background-color: #D0D3D4;
+  }
+  
+  #container {
+    background-color: white;
+    width: auto;
+    margin: auto;
+    text-align: center;
+    box-shadow: 1px 1px 4px 2px black;
+  }
+  
+  .cell:hover {
+    stroke: black;
+  }
+  
+  #tooltip {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 6px;
+    font: 12px;
+    background: black;
+    box-shadow: 1px 1px 10px;
+    border-radius: 8px;
+    pointer-events: none;
+    font-size: 12px;
+    color: white;
+    display: none;
+  }
+  
+  #legend {
+    fill: white;
+    stroke: black;
+  }

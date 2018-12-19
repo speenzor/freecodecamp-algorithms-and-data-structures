@@ -37,6 +37,17 @@ const userSchema = new Schema ({
 });
 const Model = mongoose.model('Model', userSchema);
 
+//GET an array of all users by api/exercise/users
+app.get('/api/exercise/users', (req, res) => {
+  Model.find({}, (err, data) => {
+    if (err instanceof Error || data === null) {
+      console.log('Error in getting array of all users');
+      res.send('Error in getting users');
+    } else {
+      res.json(data);
+    }
+  });
+});
 
 //GET user's exercise log
 app.get('/api/exercise/log', (req, res) => {
@@ -67,7 +78,7 @@ app.get('/api/exercise/log', (req, res) => {
   };
 
   //READ: check for userId first
-  Model.findById({_id: userId}, (err, data) => {
+  Model.findById(userId, (err, data) => {
     console.log('Checking database for userId.');
     console.log(data);
     if (data == false || data == undefined) {
@@ -133,10 +144,11 @@ app.post('/api/exercise/add', (req, res) => {
   const userId = req.body.userId;
   const description = req.body.description;
   const duration = Number(req.body.duration);
+  console.log(userId, description, duration);
   let date = req.body.date;
   //If date is empty then set to today's date
-  if (date === '') {
-    date = new Date(Date.now()).toUTCString().slice(0,16);
+  if (date === '' || date === undefined) {
+    date = new Date().toUTCString().slice(0,16);
   } else {
     date = new Date(date).toUTCString().slice(0,16);
   };

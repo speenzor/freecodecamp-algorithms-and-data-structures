@@ -23,6 +23,10 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+app.get('/api/timestamp', (req, res) => {
+  res.json({"unix": new Date().getTime(), "utc": new Date().toUTCString()});
+});
+
 //Endpoint to get date_string timestamp
 app.get('/api/timestamp/:date_string', (req, res) => {
   const dateString = new Date(req.params.date_string);

@@ -1,4 +1,4 @@
-projectName = "tree-map";
+
 
 const setData = (toggle) => {
   const datasets = {
@@ -34,8 +34,10 @@ const setData = (toggle) => {
     const request = new XMLHttpRequest();
     request.open('GET', dataset.url, true);
     request.send();
-    request.onload = () => {
-      requestCallback(JSON.parse(request.responseText), dataset.title, dataset.description);
+    request.onreadystatechange = () => {
+      if (request.readyState === 4 && request.status === 200) {
+        requestCallback(JSON.parse(request.responseText), dataset.title, dataset.description);
+      }
     };
   })(dataset);
 }
